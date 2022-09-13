@@ -1,1 +1,1 @@
-npx babel --watch src --out-dir build --presets react-app/prod
+npx babel --watch src --out-dir static/js --presets react-app/prod
