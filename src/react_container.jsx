@@ -1,24 +1,35 @@
 'use strict';
 
-class BaseReactComponent extends React.Component {
+
+// A (functional) React component
+const Button1 =()=>{
+  
+  const [liked, setLiked] = React.useState(false);
+
+  if (liked) {
+      return 'You clicked the button.';
+    }
+  
+  return(<button onClick={() => setLiked(true) }>
+        This button is a React component
+      </button>)}
+
+
+// Base container
+class BaseReactContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { liked: false };
   }
 
   render() {
-    if (this.state.liked) {
-      return 'You clicked the button.';
-    }
 
     return (
-      <button onClick={() => this.setState({ liked: true }) }>
-        This button is a React component
-      </button>
+      <div><Button1></Button1></div>
+
     );
   }
 }
 
 const domContainer = document.querySelector('#react_container');
 const root = ReactDOM.createRoot(domContainer);
-root.render(<BaseReactComponent />);
+root.render(<BaseReactContainer />);
