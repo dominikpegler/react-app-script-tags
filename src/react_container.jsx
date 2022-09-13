@@ -19,5 +19,6 @@ class BaseReactComponent extends React.Component {
   }
 }
 
-let domContainer = document.querySelector('#react_container');
-ReactDOM.render(<BaseReactComponent />, domContainer);
+const domContainer = document.querySelector('#react_container');
+const root = ReactDOM.createRoot(domContainer);
+root.render(<BaseReactComponent />);
