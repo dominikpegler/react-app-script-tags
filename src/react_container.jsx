@@ -2,15 +2,9 @@
 
 
 // A React component
-const Button1 =()=>{
-  
-  const [liked, setLiked] = React.useState(false);
-
-  if (liked) {
-      return 'You clicked the button.';
-    }
-  
-  return(<button onClick={() => setLiked(true) }>
+const Button1 =({onClickButton})=>{
+   
+  return(<button onClick={() => onClickButton() }>
         This button is a React component
       </button>)}
 
@@ -18,8 +12,14 @@ const Button1 =()=>{
 // Base container
 const BaseContainer =()=> {
    {
+    const [buttonClicks, setButtonClicks] = React.useState(0);
+
+    const onClickButton = () => {
+      setButtonClicks(buttonClicks+1)
+    }
+
     return (
-      <div><Button1></Button1></div>
+      <div><Button1 onClickButton={() => onClickButton()}/><p>Button was clicked {buttonClicks} times</p></div>
     );
   }
 }
